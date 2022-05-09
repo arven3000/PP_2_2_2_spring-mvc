@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+    <style>
+        .tab {
+            background: #f5ffff;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .tab th {
+            border-top: 1px solid #777777;
+            border-bottom: 1px solid #777777;
+            background: linear-gradient(#9595b6, #5a567f);
+            color: white;
+            padding: 10px 15px;
+        }
+        .tab tr:nth-child(odd) {
+            background: #ebf3f9;
+        }
+        .tab th:first-child {
+            border-left: 1px solid #777777;
+            border-bottom:  1px solid #777777;
+        }
+        .tab th:last-child {
+            border-right: 1px solid #777777;
+            border-bottom:  1px solid #777777;
+        }
+        .tab td {
+            border: 1px solid #e3eef7;
+            padding: 10px 15px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table class="tab">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>MODEL</th>
+            <th>SERIES</th>
+            <th>POWER</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car, iterStat : ${cars}">
+            <td th:text="${iterStat.index} + 1"></td>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.series}"></td>
+            <td th:text="${car.horsePower}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
